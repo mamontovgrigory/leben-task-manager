@@ -1,0 +1,99 @@
+@import "~materialize-css/sass/materialize.scss";
+
+$background-color: color("blue-grey", "darken-1");
+
+$blocks-background: color("blue-grey", "darken-4");
+$blocks-buttons-background: color("blue-grey", "darken-2");
+
+$buttons-font-size: 12px;
+$buttons-background: color("blue-grey", "lighten-1");
+$buttons-background-hover: color("blue-grey", "lighten-2");
+
+$text-color: color("blue" , "lighten-3");
+$danger-color: color("red" , "lighten-1") ;
+$success-color: color("teal", "darken-2");
+
+body{
+  background: $background-color;
+  color: $text-color!important;
+  a{
+    color: $text-color!important;
+  }
+}
+
+.error{
+  color: $danger-color;
+}
+
+.btn{
+  font-size: $buttons-font-size;
+  background: $buttons-background;
+  margin: 0 5px 5px 0!important;
+  color: $text-color!important;
+  text-transform: none!important;
+  &:hover, &:active{
+    background: $buttons-background-hover;
+  }
+  &.success{
+    background: $success-color!important;
+  }
+  &.danger{
+    background: $danger-color!important;
+  }
+}
+
+.card.small{
+  width: 250px;
+  height: 350px;
+  margin: 0 20px 20px 0;
+}
+
+.modal{
+  border: 2px solid $blocks-background;
+  .modal-content{
+    background: $background-color;
+  }
+  .modal-footer{
+    background: $blocks-background!important;
+    border-radius: 0;
+    .btn{
+      background: $blocks-buttons-background;
+      text-transform: none;
+    }
+  }
+}
+
+.section{
+  padding: 0.5rem;
+}
+.divider{
+  background: $text-color;
+}
+
+.collapsible{
+  .collapsible-header{
+    background: $blocks-background!important;
+    border-color: $text-color;
+    &.success{
+      background: $success-color!important;
+    }
+  }
+  .collapsible-body{
+    border-color: $text-color;
+  }
+}
+
+.panel{
+  background: $blocks-background!important;
+  @extend .z-depth-3;
+  .btn{
+    background: $blocks-buttons-background;
+    text-transform: none;
+  }
+}
+
+.block-small{
+  width: 300px;
+  padding: 20px;
+  margin-top: 20px;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "leben-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "author": "Grigory",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer-loader": "*",
+    "babel": "5.x",
+    "babel-loader": "5.*",
+    "bootstrap": "^3.3.6",
+    "css-loader": "^0.22.0",
+    "file-loader": "^0.8.5",
+    "history": "^1.17.0",
+    "html-loader": "^0.4.3",
+    "jquery": "^2.2.3",
+    "json-loader": "^0.5.4",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
+    "materialize-css": "^0.97.6",
+    "node-sass": "^3.7.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-router": "^2.0.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "lodash": "^4.12.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --content-base src --inline --hot"
+  }
+}
