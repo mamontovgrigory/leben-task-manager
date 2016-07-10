@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Authorization from "./components/Authorization";
 import SectionsList from "./components/Sections/SectionsList";
 import TasksList from "./components/Tasks/TasksList";
+import Statistic from "./components/Statistic/Statistic";
 import Developing from "./components/Developing";
 
 const app = document.getElementById("app");
@@ -18,11 +19,17 @@ ReactDOM.render(
 
             <Route path="sections/:section/list" component={TasksList} breadcrumb="tasksList" />
 
+            <Route path="sections/statistic" component={Statistic} breadcrumb="statistic" />
             <Route path="sections/:action" component={Developing} breadcrumb="developing" />
+
+            <Route path="sections/:section/list/statistic" component={Statistic} breadcrumb="sectionStatistic" />
             <Route path="sections/:section/list/:action" component={Developing} breadcrumb="developing" />
         </Route>
     </Router>,
     app);
 
 import "./../stylesheet/style.scss";
+import "./../stylesheet/typography.scss";
+import "./../stylesheet/grid.scss";
+
 import 'materialize-css/dist/js/materialize.js';

@@ -24,8 +24,25 @@ class BreadcrumbsStore extends React.Component{
                     "sections"
                 ]
             },
+            sectionStatistic: {
+                id: 4,
+                name: "Section \"" + section.name + "\" Statistic",
+                href: "/sections/" + section.id + "/list/statistic",
+                parents: [
+                    "sections",
+                    "tasksList"
+                ]
+            },
+            statistic: {
+                id: 5,
+                name: "Total Statistic",
+                href: "/sections/statistic",
+                parents: [
+                    "sections"
+                ]
+            },
             developing: {
-                id: 3,
+                id: 6,
                 name: "Under construction",
                 href: "/sections/",
                 parents: [

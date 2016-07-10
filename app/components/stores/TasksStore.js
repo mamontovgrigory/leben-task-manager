@@ -15,7 +15,9 @@ class TasksStore extends React.Component{
         this.state = { tasks: tasks };
     }
     getList(section){
-        let tasks = _.filter(this.state.tasks, function(o) { return o.section == section; });
+        let tasks = section ?
+            _.filter(this.state.tasks, function(o) { return parseInt(o.section) === parseInt(section); }) :
+            this.state.tasks;
         return tasks ? tasks : [];
     }
     getItem(params){
@@ -48,7 +50,6 @@ class TasksStore extends React.Component{
                 var taskKey = _.findIndex(tasks, function(s) {
                     return s.id == task.id;
                 });
-                //console.log(tasks[taskKey]);
                 if(task.comment){
                     task.comments = tasks[taskKey].comments ?
                         _.merge(tasks[taskKey].comments, [task.comment]) :
