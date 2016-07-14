@@ -1,6 +1,6 @@
 {
   "name": "leben-task-manager",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "app/index.js",
   "author": "Grigory",
@@ -16,6 +16,7 @@
     "history": "^1.17.0",
     "html-loader": "^0.4.3",
     "jquery": "^2.2.3",
+    "jquery-datetimepicker": "^2.5.4",
     "json-loader": "^0.5.4",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
@@ -32,6 +33,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --content-base src --inline --hot"
+    "dev": "webpack-dev-server --content-base src --inline --hot",
+    "Cold server": "webpack-dev-server --color",
+    "Debug": "webpack -d",
+    "Publish": "webpack --progress -p"
   }
 }

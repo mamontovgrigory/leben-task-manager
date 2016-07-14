@@ -11,6 +11,7 @@ export default class TasksInSectionsChart extends React.Component{
 
         let options = {
             title: 'Sections tasks',
+            backgroundColor: '#546E7A',
             legend: 'none'
         };
 

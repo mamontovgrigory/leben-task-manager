@@ -11,6 +11,7 @@ export default class CompletedTasksChart extends React.Component{
 
         let options = {
             title: 'Completed tasks',
+            backgroundColor: '#546E7A',
             legend: 'none'
         };
 

@@ -28,8 +28,7 @@ ReactDOM.render(
     </Router>,
     app);
 
-import "./../stylesheet/style.scss";
-import "./../stylesheet/typography.scss";
-import "./../stylesheet/grid.scss";
+import '../libs_custom/libsCustom';
 
-import 'materialize-css/dist/js/materialize.js';
+import "./typography.scss";
+import "./grid.scss";

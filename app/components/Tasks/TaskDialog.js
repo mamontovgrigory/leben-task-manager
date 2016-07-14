@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import OverlayTrigger from '.././dialog/OverlayTrigger';
 import TasksStore from "./../stores/TasksStore";
@@ -14,6 +14,12 @@ export default class TaskDialog extends React.Component{
     onChangeHandlerName(e){
         this.setState({
             name: e.target.value
+        });
+    }
+    onChangeHandlerDueDate(value){
+        console.log('onChangeHandlerDueDate', value);
+        this.setState({
+            dueDate: value
         });
     }
     onChangeHandlerDescription(e){
@@ -40,7 +46,7 @@ export default class TaskDialog extends React.Component{
             ...props
         } = this.props;
 
-        let types = TasksStore.getTypes();
+        //let types = TasksStore.getTypes();
         return(
             <div className="modal" style={{ width: 600 }} {...props}>
                 <div className="modal-content panel">
@@ -54,14 +60,10 @@ export default class TaskDialog extends React.Component{
                                 <label htmlFor="name" className="">task Name</label>
                             </div>
                             <div className="input-field col s6">
-                                <select name="type" value={this.state.type} id="select">
-                                    {
-                                        types.map((el) => {
-                                            return <option key={el.id} value={el.id}>{el.name}</option>
-                                        })
-                                    }
-                                </select>
-                                <label htmlFor="type">Type</label>
+                                <input id="name" type="text" className="datepicker"
+                                       value={this.state.dueDate}
+                                       onChange={this.onChangeHandlerDueDate.bind(this)} />
+                                <label htmlFor="name">Due Date</label>
                             </div>
                         </div>
                         <div className="row">
@@ -69,7 +71,7 @@ export default class TaskDialog extends React.Component{
                             <textarea id="description" className="materialize-textarea"
                                       value={this.state.description}
                                       onChange={this.onChangeHandlerDescription.bind(this)} />
-                                <label htmlFor="description" className="">Description</label>
+                                <label htmlFor="description">Description</label>
                             </div>
                         </div>
                         {
@@ -97,6 +99,26 @@ export default class TaskDialog extends React.Component{
                 overlay={ this.renderOverlay() }
                 callback={ function(){
                     Materialize.updateTextFields();
+                    /*$('.datepicker').pickadate({
+                        selectMonths: true, // Creates a dropdown to control month
+                        selectYears: 15, // Creates a dropdown of 15 years to control year
+                        format: 'dd.mm.yyyy',
+                        onSet: function(data){
+                            console.log(data);
+                        },
+                        clear: 'Clear',
+                        close: 'Ok'
+                      });*/
+                    $('.datepicker').datetimepicker({
+                        theme:'dark',
+                        timepicker: false,
+                        format: 'd.m.Y',
+                        onClose: function(current_time,$input){
+                            console.log(current_time,$input);
+                            this.onChangeHandlerDueDate($input.val());
+                            $input.change();
+                        }
+                    });
                     $('select').material_select();
                     $('#select').on('change',this.onChangeHandlerType);
                 }}
