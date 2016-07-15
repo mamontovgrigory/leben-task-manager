@@ -1,5 +1,6 @@
 import OverlayTrigger from '.././dialog/OverlayTrigger';
 import TasksStore from "../../stores/TasksStore";
+import PriorityStore from '../../stores/PriorityStore';
 
 export default class TaskDialog extends React.Component{
     constructor(props){
@@ -24,9 +25,9 @@ export default class TaskDialog extends React.Component{
             description: e.target.value
         });
     }
-    onChangeHandlerType(e){
+    onChangeHandlerPriority(value){
         this.setState({
-            type: e.target.value
+            priority: value
         });
     }
     submitHandler(e){
@@ -44,8 +45,13 @@ export default class TaskDialog extends React.Component{
         } = this.props;
 
         //let types = TasksStore.getTypes();
+        let priorityList = PriorityStore.getList();
+        let priorityDefault = _.filter(priorityList, function(p){
+            return p.default === true;
+        });
+        let priorityDefaultId = priorityDefault && priorityDefault.length ? priorityDefault[0].id : null;
         return(
-            <div className="modal" style={{ width: 600 }} {...props}>
+            <div className="modal modal-fixed-footer" style={{ width: 600 }} {...props}>
                 <div className="modal-content panel">
                     <form className="col s12">
                         <h5 className="center-align ">{this.state.id ? "Edit task \"" + this.state.name + "\"" : "New task"}</h5>
@@ -57,10 +63,26 @@ export default class TaskDialog extends React.Component{
                                 <label htmlFor="name" className="">task Name</label>
                             </div>
                             <div className="input-field col s6">
+                                <select name="type" ref="prioritySelect"
+                                        value={this.state.priority ? this.state.priority : priorityDefaultId}>
+                                    {
+                                        priorityList.map((el) => {
+                                            return <option key={el.id} value={el.id}>{el.name}</option>
+                                        })
+                                    }
+                                </select>
+                                <label htmlFor="type">Priority</label>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="input-field col s6">
                                 <input id="name" type="text" className="datepicker"
                                        value={this.state.dueDate}
                                        onChange={this.onChangeHandlerDueDate.bind(this)} />
                                 <label htmlFor="name">Due Date</label>
+                            </div>
+                            <div className="input-field col s6">
+
                             </div>
                         </div>
                         <div className="row">
@@ -96,18 +118,7 @@ export default class TaskDialog extends React.Component{
             <OverlayTrigger
                 overlay={ this.renderOverlay() }
                 callback={ function(){
-
                     Materialize.updateTextFields();
-                    /*$('.datepicker').pickadate({
-                        selectMonths: true, // Creates a dropdown to control month
-                        selectYears: 15, // Creates a dropdown of 15 years to control year
-                        format: 'dd.mm.yyyy',
-                        onSet: function(data){
-                            console.log(data);
-                        },
-                        clear: 'Clear',
-                        close: 'Ok'
-                      });*/
                     $('.datepicker').datetimepicker({
                         theme:'dark',
                         timepicker: false,
@@ -117,7 +128,9 @@ export default class TaskDialog extends React.Component{
                         }
                     });
                     $('select').material_select();
-                    $('#select').on('change',this.onChangeHandlerType);
+                    $(ReactDOM.findDOMNode(thisClass.refs.prioritySelect)).on('change', function(){
+                        thisClass.onChangeHandlerPriority($(this).val());
+                    });
                 }}
             >
                 {this.props.trigger}

@@ -1,0 +1,14 @@
+@import "../node_modules/materialize-css/sass/materialize";
+
+$background-color: color("blue-grey", "darken-1");
+
+$blocks-background: color("blue-grey", "darken-4");
+$blocks-buttons-background: color("blue-grey", "darken-2");
+
+$buttons-font-size: 12px;
+$buttons-background: color("blue-grey", "lighten-1");
+$buttons-background-hover: color("blue-grey", "lighten-2");
+
+$text-color: color("blue" , "lighten-3");
+$danger-color: color("deep-orange" , "darken-4") ;
+$success-color: color("teal", "darken-2");
