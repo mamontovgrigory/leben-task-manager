@@ -1,37 +1,42 @@
-import TaskDialog from "./TaskDialog";
-import TaskCompleteDialog from "./TaskCompleteDialog";
-import TasksStore from "./../stores/TasksStore";
-import ConfirmDialog from "./../dialog/ConfirmDialog";
+import TaskDialog from './TaskDialog';
+import TaskCompleteDialog from './TaskCompleteDialog';
+import TasksStore from '../../stores/TasksStore';
+import ConfirmDialog from './../dialog/ConfirmDialog';
 
 export default class Task extends React.Component{
     deleteTask(){
         TasksStore.del(this.props.id);
-        window.location = "#/sections/" + this.props.section + "/list";
+        window.location = '#/sections/' + this.props.section + '/list';
     }
     setCompletion(){
-        var task = {
-            id: this.props.id,
-            name: this.props.name,
-            description: this.props.description,
-            note: this.props.note,
-            section: this.props.section,
-            isCompleted: !this.props.isCompleted
-        };
+        let task = this.props;
+        task.isCompleted = !this.props.isCompleted;
+
         TasksStore.save(task);
-        window.location = "#/sections/" + this.props.section + "/list";
+        window.location = '#/sections/' + this.props.section + '/list';
     }
     render(){
-        let completedClass = this.props.isCompleted ? "success" : "";
+        let statusClass = '';
+        let icon = 'schedule';
+        if(this.props.isCompleted) {
+            icon = 'done';
+            statusClass = 'success';
+        }else if (this.props.dueDate &&
+            moment().isAfter(moment(this.props.dueDate, config.moment.format))){
+            icon = 'today';
+            statusClass = 'danger';
+        }
         return (
             <li>
-                <div className={"collapsible-header " + completedClass}>
-                    <i className="material-icons">today</i>{this.props.name}
+                <div className={'collapsible-header ' + statusClass}>
+                    <i className='material-icons'>{icon}</i>{this.props.name}
                 </div>
-                <div className="collapsible-body">
-                    <div className="section">
+                <div className='collapsible-body'>
+                    <div className='section'>
                         {
                             this.props.isCompleted ?
-                                <button className={"btn waves-effect waves-light"} onClick={this.setCompletion.bind(this)}>
+                                <button className={'btn waves-effect waves-light'}
+                                        onClick={this.setCompletion.bind(this)}>
                                     <span>Reopen</span>
                                 </button>
                                 :
@@ -39,7 +44,7 @@ export default class Task extends React.Component{
                                     task={this.props}
                                     section={this.props.section}
                                     trigger={
-                                    <button className="btn waves-effect waves-light">
+                                    <button className='btn waves-effect waves-light'>
                                         <span>Complete</span>
                                     </button>
                                 } />
@@ -48,23 +53,23 @@ export default class Task extends React.Component{
                             task={this.props}
                             section={this.props.section}
                             trigger={
-                                <button className="btn waves-effect waves-light">
+                                <button className='btn waves-effect waves-light'>
                                     <span>Edit</span>
                                 </button>
                             } />
                         <ConfirmDialog
-                            header="Are you sure?"
+                            header='Are you sure?'
                             confirmCallback={this.deleteTask.bind(this)}
                             trigger={
-                                <button className="btn waves-effect waves-light">
+                                <button className='btn waves-effect waves-light'>
                                     <span>Delete</span>
                                 </button>
                             }
                         >
                             <p>Delete task {this.props.name}?</p>
                         </ConfirmDialog>
-                        <div className="divider"></div>
-                        <div className="section">
+                        <div className='divider'></div>
+                        <div className='section'>
                             {this.props.description}
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 import OverlayTrigger from '.././dialog/OverlayTrigger';
-import TasksStore from "./../stores/TasksStore";
+import TasksStore from "../../stores/TasksStore";
 
 export default class TaskDialog extends React.Component{
     constructor(props){
@@ -111,7 +111,7 @@ export default class TaskDialog extends React.Component{
                     $('.datepicker').datetimepicker({
                         theme:'dark',
                         timepicker: false,
-                        format: 'd.m.Y',
+                        format: config.datetimepicker.format,
                         onClose: function(current_time,$input){
                             thisClass.onChangeHandlerDueDate($input.val());
                         }

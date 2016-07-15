@@ -1,7 +1,7 @@
 import _ from "lodash";
 
 import OverlayTrigger from '.././dialog/OverlayTrigger';
-import TasksStore from ".././stores/TasksStore";
+import TasksStore from "../../stores/TasksStore";
 
 export default class TaskCompleteDialog extends React.Component{
     constructor(props){

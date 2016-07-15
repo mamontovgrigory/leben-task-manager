@@ -1,8 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
 
-import TasksStore from '../stores/TasksStore';
-import SectionsStore from '../stores/SectionsStore';
+import TasksStore from '../../stores/TasksStore';
+import SectionsStore from '../../stores/SectionsStore';
 
 import TasksInSectionsChart from './TasksInSectionsChart';
 import CompletedTasksChart from './CompletedTasksChart';

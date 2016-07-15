@@ -1,4 +1,6 @@
 import '../libs_custom/libsCustom';
+import config from './global/config';
+window.config = config;
 
 import "./typography.scss";
 import "./grid.scss";

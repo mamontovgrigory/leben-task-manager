@@ -2,8 +2,8 @@ import { Link } from "react-router";
 
 import Task from "./../Tasks/Task";
 import TaskDialog from "./TaskDialog";
-import TasksStore from "./../stores/TasksStore";
-import ButtonsStore from "./../stores/ButtonsStore";
+import TasksStore from "../../stores/TasksStore";
+import ButtonsStore from "../../stores/ButtonsStore";
 
 export default class TasksList extends React.Component{
     componentDidMount(){

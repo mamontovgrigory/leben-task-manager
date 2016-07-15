@@ -1,7 +1,7 @@
 import React from "react";
 import OverlayTrigger from '.././dialog/OverlayTrigger';
 
-import SectionsStore from ".././stores/SectionsStore";
+import SectionsStore from "../../stores/SectionsStore";
 
 export default class SectionDialog extends React.Component{
     constructor(props){

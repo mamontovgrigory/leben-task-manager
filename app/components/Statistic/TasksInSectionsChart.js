@@ -2,8 +2,8 @@ import React from 'react'
 import _ from 'lodash';
 import { Chart } from 'react-google-charts'
 
-import TasksStore from "../stores/TasksStore";
-import SectionsStore from "../stores/SectionsStore";
+import TasksStore from "../../stores/TasksStore";
+import SectionsStore from "../../stores/SectionsStore";
 
 export default class TasksInSectionsChart extends React.Component{
     constructor(){

@@ -1,6 +1,6 @@
 import React from "react";
 
-import AuthorizationStore from "./stores/AuthorizationStore";
+import AuthorizationStore from "../stores/AuthorizationStore";
 
 export default class Authorization extends React.Component{
     constructor(){

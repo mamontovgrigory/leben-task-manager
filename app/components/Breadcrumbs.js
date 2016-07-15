@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-import BreadcrumbsStore from "./stores/BreadcrumbsStore";
+import BreadcrumbsStore from "../stores/BreadcrumbsStore";
 
 export default class Breadcrumbs extends React.Component{
     render(){

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 import SectionDialog from "./SectionDialog";
-import SectionStore from "./../stores/SectionsStore";
+import SectionStore from "../../stores/SectionsStore";
 
 import ConfirmDialog from "./../dialog/ConfirmDialog";
 

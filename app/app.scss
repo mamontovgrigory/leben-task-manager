@@ -10,7 +10,7 @@ $buttons-background: color("blue-grey", "lighten-1");
 $buttons-background-hover: color("blue-grey", "lighten-2");
 
 $text-color: color("blue" , "lighten-3");
-$danger-color: color("red" , "lighten-1") ;
+$danger-color: color("deep-orange" , "darken-4") ;
 $success-color: color("teal", "darken-2");
 
 body{
@@ -76,6 +76,9 @@ body{
     border-color: $text-color;
     &.success{
       background: $success-color!important;
+    }
+    &.danger{
+      background: $danger-color!important;
     }
   }
   .collapsible-body{

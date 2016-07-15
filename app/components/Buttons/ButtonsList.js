@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TaskDialog from "../Tasks/TaskDialog";
-import ButtonsStore from "./../stores/ButtonsStore";
+import ButtonsStore from "../../stores/ButtonsStore";
 
 export default class ButtonsList extends React.Component{
     render(){

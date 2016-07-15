@@ -3,9 +3,9 @@ import { Link } from "react-router";
 
 import Section from "./Section";
 import SectionDialog from "./SectionDialog";
-import SectionStore from "./../stores/SectionsStore";
+import SectionStore from "../../stores/SectionsStore";
 
-import ButtonsStore from "./../stores/ButtonsStore";
+import ButtonsStore from "../../stores/ButtonsStore";
 
 export default class SectionsList extends React.Component{
     render(){
