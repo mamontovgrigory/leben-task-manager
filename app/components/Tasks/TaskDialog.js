@@ -1,5 +1,3 @@
-import React from 'react';
-
 import OverlayTrigger from '.././dialog/OverlayTrigger';
 import TasksStore from "./../stores/TasksStore";
 
@@ -17,7 +15,6 @@ export default class TaskDialog extends React.Component{
         });
     }
     onChangeHandlerDueDate(value){
-        console.log('onChangeHandlerDueDate', value);
         this.setState({
             dueDate: value
         });
@@ -94,11 +91,12 @@ export default class TaskDialog extends React.Component{
         )
     }
     render(){
+        var thisClass = this;
         return (
             <OverlayTrigger
                 overlay={ this.renderOverlay() }
                 callback={ function(){
-                    //var thisClass = this;
+
                     Materialize.updateTextFields();
                     /*$('.datepicker').pickadate({
                         selectMonths: true, // Creates a dropdown to control month
@@ -115,9 +113,7 @@ export default class TaskDialog extends React.Component{
                         timepicker: false,
                         format: 'd.m.Y',
                         onClose: function(current_time,$input){
-                            //console.log(current_time,$input);
-                            //thisClass.onChangeHandlerDueDate($input.val());
-                            $input.change();
+                            thisClass.onChangeHandlerDueDate($input.val());
                         }
                     });
                     $('select').material_select();

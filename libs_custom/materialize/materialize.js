@@ -1,1 +1,2 @@
 import 'materialize-css/dist/js/materialize.js';
+import './materialize.scss';

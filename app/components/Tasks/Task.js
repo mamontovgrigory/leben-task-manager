@@ -1,5 +1,3 @@
-import React from "react";
-
 import TaskDialog from "./TaskDialog";
 import TaskCompleteDialog from "./TaskCompleteDialog";
 import TasksStore from "./../stores/TasksStore";

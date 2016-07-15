@@ -68,10 +68,13 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
+            React: "react",
+            ReactDOM: "react-dom",
             $: "jquery",
             jQuery: "jquery",
             "window.$": "jquery",
-            "window.jQuery": "jquery"
+            "window.jQuery": "jquery",
+            moment: 'moment'
         }),
          /*new webpack.optimize.UglifyJsPlugin({
             compress: {

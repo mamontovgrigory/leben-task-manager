@@ -1,5 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import '../libs_custom/libsCustom';
+
+import "./typography.scss";
+import "./grid.scss";
+
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import Layout from "./components/Layout";
@@ -28,7 +31,4 @@ ReactDOM.render(
     </Router>,
     app);
 
-import '../libs_custom/libsCustom';
-
-import "./typography.scss";
-import "./grid.scss";
+console.log(moment())
