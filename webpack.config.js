@@ -1,4 +1,7 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const NODE_ENV = process.env.NODE_ENV || 'production';
 
 module.exports = {
     entry: "./app/index.js",
@@ -67,6 +70,13 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'NODE_ENV': JSON.stringify(NODE_ENV)
+        }),
+        new HtmlWebpackPlugin({
+            title: 'ladony',
+            template: __dirname + '/index.html'
+        }),
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",
@@ -83,8 +93,13 @@ module.exports = {
             }
         })*/
     ],
-    watch: true,
+    watch: NODE_ENV === 'development',
     watchOptions: {
         aggregateTimeout: 100
+    },
+    devServer: {
+        contentBase: ".",
+        host: "localhost",
+        port: 9000
     }
 };

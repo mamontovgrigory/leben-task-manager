@@ -37,6 +37,7 @@ class SectionsStore extends React.Component{
         if(section && section.name){
             var sections = this.state.sections;
             if(!section.id){
+                section.id = 0;
                 for(var i = 0; i < sections.length; i++){
                     if(!section.id || sections[i].id + 1 > section.id)
                         section.id = sections[i].id + 1;

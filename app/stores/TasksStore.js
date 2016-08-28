@@ -46,6 +46,7 @@ class TasksStore extends React.Component{
         if(task && task.name){
             var tasks = this.state.tasks;
             if(!task.id){
+                task.id = 0;
                 for(var i = 0; i < tasks.length; i++){
                     if(!task.id || tasks[i].id + 1 > task.id)
                         task.id = parseInt(tasks[i].id) + 1;

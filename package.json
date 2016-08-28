@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "description": "",
   "main": "app/index.js",
+  "scripts": {
+    "Cold server": "set NODE_ENV=development && webpack-dev-server --watch-poll --color",
+    "Debug": "set NODE_ENV=development && webpack -d",
+    "Publish": "set NODE_ENV=production && webpack --progress -p"
+  },
   "author": "Grigory",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.2"
+  },
   "devDependencies": {
     "autoprefixer-loader": "*",
     "babel": "5.x",
@@ -21,6 +29,7 @@
     "json-loader": "^0.5.4",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
+    "lodash": "^4.15.0",
     "materialize-css": "^0.97.6",
     "moment": "^2.14.1",
     "node-sass": "^3.7.0",
@@ -31,13 +40,6 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
-    "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --content-base src --inline --hot",
-    "Cold server": "webpack-dev-server --color",
-    "Debug": "webpack -d",
-    "Publish": "webpack --progress -p"
   }
 }
