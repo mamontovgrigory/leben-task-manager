@@ -21,7 +21,7 @@ export default class TopPanel extends React.Component{
                         <li>
                             <a className="dropdown-button" href="#!" data-activates="dropdown-user">
                                 <div className="chip">
-                                    <img src="images/user.jpg" alt="Profile" />
+                                    <img src={require("../content/user.jpg")} alt="Profile" />
                                     {user.name}
                                 </div>
                                 <i className="material-icons right">arrow_drop_down</i>

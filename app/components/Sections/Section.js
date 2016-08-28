@@ -15,7 +15,7 @@ export default class Section extends React.Component{
         return (
             <div className="card small hoverable left">
                 <div className="card-image waves-effect waves-block waves-light">
-                    <img className="activator" src="images/health.jpg" />
+                    <img className="activator" src={require("./content/health.jpg")} />
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">
